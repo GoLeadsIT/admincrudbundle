@@ -1,0 +1,26 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% extends '@GoleadsitAdminCrud/base.html.twig' %}
+
+{% block base_title %}
+    {{ headerTitle }} -
+    {% if type == 'new' %}
+        Nuevo/a
+    {% elseif type == 'edit' %}
+        Editar
+    {% else %}
+        {{ headerSubtitle }}
+    {% endif %}
+     |
+{% endblock base_title %}
+
+{% block base_body %}
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_widget(form) }}
+            </div>
+            {% include '@GoleadsitAdminCrud/form_submit_button.html.twig' %}
+        </div>
+    {{ form_end(form) }}
+{% endblock base_body %}

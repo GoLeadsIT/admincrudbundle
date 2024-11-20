@@ -1,0 +1,25 @@
+{
+    "name": "goleadsit/admincrudbundle",
+    "description": "",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "José Luis",
+            "email": "jose.luis.f91.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "goleadsit/adminbundle": "^1.0",
+        "knplabs/knp-paginator-bundle": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Goleadsit\\AdminCrudBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

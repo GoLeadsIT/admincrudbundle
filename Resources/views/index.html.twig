@@ -1,0 +1,44 @@
+{% extends '@GoleadsitAdminCrud/base.html.twig' %}
+
+{% block base_body %}
+    <div class="box">
+        <div class="box-body no-padding">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="bg-light">
+                        <th class="col-sm-8 col-md-9">Nombre</th>
+                        <th class="col-xs-4 col-md-3">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in values %}
+                        <tr>
+                            <td>{{ v }}</td>
+                            <td>
+                                {% if(paths.show is not empty) %}
+                                    <a href="{{ path(paths.show, {'id': v.id}) }}" class="btn btn-default" title="Ver"><i class="fa fa-eye"></i> </a>
+                                {% endif %}
+                                {% if(paths.edit is not empty) %}
+                                    <a href="{{ path(paths.edit, {'id': v.id}) }}" class="btn btn-default" title="Editar"><i class="fa fa-edit"></i></a>
+                                {% endif %}
+                                {% if(paths.delete is not empty) %}
+                                    <a href="{{ path(paths.delete, {'id': v.id}) }}" class="btn btn-danger" title="Eliminar"><i class="fa fa-trash-o"></i></a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="2" class="text-center h4" style="padding-top: 30px; padding-bottom: 30px;">
+                                No se han encontrado resultados <br>
+                                <i class="fa fa-frown-o fa-2x" style="margin-top: 10px;"></i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(values) }}
+    </div>
+{% endblock base_body %}

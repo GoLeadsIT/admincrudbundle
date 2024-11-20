@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- CrudController -->
+        <service id="goleadsit_admin_crud.crud_controller" class="Goleadsit\AdminCrudBundle\Controller\CrudController" public="false">
+            <tag name="controller.service_arguments" />
+        </service>
+
+        <!-- AdminCrudLoader -->
+        <service id="goleadsit_admim_crud.loader" class="Goleadsit\AdminCrudBundle\Routing\AdminCrudLoader" public="false">
+            <argument type="service" id="goleadsit_admin_crud.config_manager" />
+            <tag name="routing.loader" />
+        </service>
+
+        <!-- ConfigManager -->
+        <service id="goleadsit_admin_crud.config_manager" class="Goleadsit\AdminCrudBundle\DependencyInjection\ConfigManager" public="true" />
+        <service id="Goleadsit\AdminCrudBundle\DependencyInjection\ConfigManager" alias="goleadsit_admin_crud.config_manager" public="false"/>
+    </services>
+</container>

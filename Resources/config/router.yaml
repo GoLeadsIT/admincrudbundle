@@ -1,0 +1,3 @@
+goleadsit_admin_crud_routes:
+    resource: .
+    type: extra
